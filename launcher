@@ -1,0 +1,23 @@
+# vim: ft=swayconfig
+
+# Launcher alias to make it easy to change launcher settings or the launcher altogether
+set $menu bemenu --line-height=21 --fn=$font \
+                 --tb=$bemenu_title_background \
+                 --tf=$bemenu_title_foreground \
+                 --fb=$bemenu_filter_background \
+                 --ff=$bemenu_filter_foreground \
+                 --nb=$bemenu_normal_background \
+                 --nf=$bemenu_normal_foreground \
+                 --hb=$bemenu_highlighted_background \
+                 --hf=$bemenu_highlighted_foreground \
+                 --sb=$bemenu_selected_background \
+                 --sf=$bemenu_selected_foreground \
+                 --ab=$bemenu_alternating_background \
+                 --af=$bemenu_alternating_foreground \
+                 --hp=7
+                 #--bottom
+
+
+# and finally the actual launch command, path_gen is my own custom (and not too great) path generation script, may replace it with something else later
+set $launcher bash -c '~/.config/sway/scripts/path_gen $path' | $menu --prompt='Launch' | xargs swaymsg exec --
+

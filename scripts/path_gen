@@ -1,0 +1,19 @@
+#!/bin/env python3
+
+from os import listdir, environ
+
+
+def main():
+    path = []
+    for directory in environ['PATH'].split(':'):
+        path += listdir(directory)
+
+    path.sort()
+
+    for file in path:
+        print(file)
+
+
+if __name__ == '__main__':
+    main()
+

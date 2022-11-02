@@ -1,0 +1,55 @@
+# vim: ft=swayconfig
+
+# all of my extra shortcuts, tried to make it as self-documenting as possible
+
+
+# Manual Screen Locking
+bindsym ctrl+$mod+l exec $lockscreen
+
+
+# volume
+set $i3blocks_update_volume pkill -SIGRTMIN+13 i3blocks && pactl get-sink-volume @DEFAULT_SINK@ | head -n 1 | awk '{print substr($5, 1, length($5)-1)}' > $WOBSOCK
+bindsym --locked XF86AudioMute        exec pactl set-sink-mute   @DEFAULT_SINK@   toggle && $i3blocks_update_volume
+bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@   +5%    && $i3blocks_update_volume
+bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@   -5%    && $i3blocks_update_volume
+bindsym --locked XF86AudioMicMute     exec pactl set-source-mute @DEFAULT_SOURCE@ toggle && pkill -SIGRTMIN+12 i3blocks
+
+
+# media
+set $i3blocks_update_playerctl pkill -SIGRTMIN+10 i3blocks
+bindsym --locked XF86AudioPlay exec playerctl play-pause   && $i3blocks_update_playerctl
+bindsym --locked XF86AudioStop exec playerctl stop         && $i3blocks_update_playerctl
+bindsym --locked XF86AudioPrev exec playerctl previous     && $i3blocks_update_playerctl
+bindsym --locked XF86AudioNext exec playerctl next         && $i3blocks_update_playerctl
+# alternative media keys
+bindsym --locked $mod+backslash exec playerctl play-pause  && $i3blocks_update_playerctl
+bindsym --locked $mod+bracketleft exec playerctl previous  && $i3blocks_update_playerctl
+bindsym --locked $mod+bracketright exec playerctl next     && $i3blocks_update_playerctl
+
+
+# bightness
+bindsym --locked XF86MonBrightnessDown exec light -U 5 && pkill -SIGRTMIN+11 i3blocks && light -G | cut -d'.' -f1 > $WOBSOCK
+bindsym --locked XF86MonBrightnessUp   exec light -A 5 && pkill -SIGRTMIN+11 i3blocks && light -G | cut -d'.' -f1 > $WOBSOCK
+
+
+# WiFi
+bindsym XF86RFKill      exec nmcli radio wifi on  && pkill -SIGRTMIN+14 i3blocks
+bindsym $mod+XF86RFKill exec nmcli radio wifi off && pkill -SIGRTMIN+14 i3blocks
+
+
+# Window Transparency
+bindsym $mod+o opacity minus .05
+bindsym $mod+p opacity plus  .05
+
+
+# Stick/Pin windows to all workspaces
+bindsym ctrl+$mod+p sticky toggle
+
+
+# screenshot - Shift to crop, $MOD to save to clipboard
+bindsym Print            exec GRIM_DEFAULT_DIR=~/Pictures/screenshots grim && notify-send "Screenshot saved in ~/Pictures/screenshots"
+bindsym Shift+Print      exec GRIM_DEFAULT_DIR=~/Pictures/screenshots grim -g "$(slurp)" && notify-send "Screenshot saved in ~/Pictures/screenshots"
+bindsym $mod+Print       exec grim -               | wl-copy && notify-send "Screenshot copied to clipboard"
+bindsym $mod+Shift+Print exec grim -g "$(slurp)" - | wl-copy && notify-send "Screenshot copied to clipboard"
+
+

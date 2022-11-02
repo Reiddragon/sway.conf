@@ -1,0 +1,23 @@
+# vim: ft=swayconfig
+
+bar {
+    position top
+    font $font
+    #height 32
+
+    # When the status_command prints a new line to stdout, swaybar updates.
+    # The default just shows the current date and time.
+    # status_command while date +'%Y-%m-%d %H:%M:%S'; do sleep 1; done
+    status_command i3blocks -c ~/.config/sway/i3blocks
+#    separator_symbol 
+
+    colors {
+        statusline  $panel_foreground
+        background  $panel_background
+        focused_workspace  $ws_focused
+        active_workspace   $ws_active
+        inactive_workspace $ws_inactive
+        urgent_workspace   $ws_urgent
+    }
+}
+

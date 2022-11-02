@@ -1,0 +1,11 @@
+#!/bin/env bash
+
+mute=$(pactl get-sink-mute @DEFAULT_SINK@)
+
+if [[ ${mute#'Mute: '} == "yes" ]]; then
+    echo 遼 
+else
+    echo "蓼 $(pactl get-sink-volume @DEFAULT_SINK@ | head -n 1 | awk '{print substr($5, 1, length($5)-1)}')"
+fi
+
+

@@ -1,0 +1,12 @@
+#!/bin/sh
+
+nmcli -g device,state,connection device status | awk -F: '{ if (length($3) == 0) { print $2 } else { print "Connected to", $3 } }'
+
+#nmcli -g device,state,connection device status |  # get the list of devices and whether they're connected
+#    head -n1 |
+#    grep wlp1s0 |                                 # filter only the wifi adapter (bad idea)
+#    sed "s/wlp1s0:connected:/Connected to /" |    # finally clean the line a bit
+#    grep Connected || echo "Disconnected"
+
+
+

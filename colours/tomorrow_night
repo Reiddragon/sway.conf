@@ -1,0 +1,72 @@
+# vim: ft=swayconfig
+
+set $palette_foreground   #c5c8c6
+set $palette_background   #1d1f21
+
+set $palette_black        #1d1f21
+set $palette_grey_dark    #969896
+set $palette_grey_light   #c5c8c6
+set $palette_white        #ffffff
+
+set $palette_red             #cc6666
+set $palette_red_bright      #cc6666
+set $palette_green           #b5bd68
+set $palette_green_bright    #b5bd68
+set $palette_brown           #f0c674
+set $palette_brown_bright    #f0c674
+set $palette_blue            #81a2be
+set $palette_blue_bright     #81a2be
+set $palette_purple          #b294bb
+set $palette_purple_bright   #b294bb
+set $palette_cyan            #8abeb7
+set $palette_cyan_bright     #8abeb7
+
+
+# Decorations             Border                Background           Text                  Indicator            Child Border
+client.focused            $palette_blue         $palette_blue        $palette_background   $palette_blue        $palette_blue
+client.focused_inactive   $palette_grey_dark    $palette_grey_dark   $palette_foreground   $palette_grey_dark   $palette_grey_dark
+client.unfocused          $palette_background   $palette_black       $palette_foreground   $palette_black       $palette_background
+client.urgent             $palette_red          $palette_red         $palette_foreground   $palette_red         $palette_red
+
+
+# Panel
+set $panel_transparency   cc
+set $panel_foreground     $palette_foreground
+set $panel_background     $palette_background$panel_transparency
+
+# Workspaces       Outline                                  Bg                                       Text
+set $ws_focused    $palette_blue                          $palette_blue                          $palette_background
+set $ws_active     $palette_blue                          $palette_blue                          $palette_background
+set $ws_inactive   $palette_background$panel_transparency   $palette_background$panel_transparency   $palette_foreground
+set $ws_urgent     $palette_red                             $palette_red                             $palette_background
+
+
+# Wob
+# - absolutely requires colours to be #RRGGBBAA, and doesn't just assume
+#   the alpha channel to be FF if ommited, instead refusing to even start
+set $wob_opacity FF
+set $wob_border      $palette_blue$wob_opacity
+set $wob_bar         $palette_blue$wob_opacity
+set $wob_background  $palette_background$wob_opacity
+
+
+# Mako
+set $mako_background  $palette_blue
+set $mako_text        $palette_background
+set $mako_border      $palette_blue
+
+
+# bemenu
+set $bemenu_title_background         $palette_blue
+set $bemenu_title_foreground         $palette_background
+set $bemenu_filter_background        $palette_background
+set $bemenu_filter_foreground        $palette_foreground
+set $bemenu_normal_background        $palette_background
+set $bemenu_normal_foreground        $palette_foreground
+set $bemenu_highlighted_background   $palette_blue
+set $bemenu_highlighted_foreground   $palette_background
+set $bemenu_selecred_background      $palette_background
+set $bemenu_selecred_foreground      $palette_blue
+set $bemenu_alternating_background   $palette_background
+set $bemenu_alternating_foreground   $palette_blue
+

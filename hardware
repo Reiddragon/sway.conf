@@ -1,0 +1,31 @@
+# vim: ft=swayconfig
+
+# This one's strictly hardware configs like the display, mouse, and touchpad,
+# you probably want to replace all of this with something that matches your
+# setup
+
+# Display Options
+output eDP-1 {
+    res 2880x1800
+    scale 1.5
+}
+
+# Touchpad Options
+input type:touchpad {
+    click_method clickfinger
+    dwt enabled
+    tap disabled
+    natural_scroll disabled
+    middle_emulation enabled
+}
+
+input type:mouse {
+    accel_profile flat
+    pointer_accel -1
+}
+
+input type:keyboard {
+    #xkb_options ctrl:swapcaps
+    xkb_options caps:ctrl_modifier
+}
+

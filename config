@@ -1,0 +1,53 @@
+# Logo key. Use Mod1 for Alt.
+set $mod Mod4
+
+# Home row direction keys, like vim
+set $left h
+set $down j
+set $up k
+set $right l
+
+# Your preferred terminal emulator
+set $term kitty
+
+# theme stuff
+set $font "Hack Nerd Font 10"
+
+seat seat0 xcursor_theme Breeze_Snow 24
+
+include colours/summerfruit_dark
+
+# backgrounds - lockscreen needs quotes if the path has spaces, desktop works fine both with and without them tho :P
+set $desktop_bg "/home/reid/Pictures/Just Another Library Cityscapes/Sci-Fi 107.jpg"
+set $lockscreen swaylock -f \
+        --screenshots \
+        --clock \
+        --indicator \
+        --effect-scale .7 \
+        --effect-blur 10x10 \
+        --fade-in 0.2
+
+
+font $font
+gaps inner 6
+gaps outer 3
+smart_gaps on
+smart_borders on
+title_align center
+default_border pixel 2
+
+include services
+include hardware
+include panel
+include keyboard
+include keyboard_extra
+include launcher
+
+### Output configuration
+# You can get the names of your inputs by running: swaymsg -t get_inputs
+# Read `man 5 sway-input` for more information about this section.
+output * bg $desktop_bg fill
+
+
+# Idk what this one's for but the reference config had it so I ain't fucking with it
+include /etc/sway/config.d/*

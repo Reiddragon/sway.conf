@@ -1,0 +1,73 @@
+# vim: ft=swayconfig
+
+# Space Colors
+set $embark_spc_1  #100E23
+set $embark_spc_2  #1E1C31
+set $embark_spc_3  #2D2B40
+set $embark_spc_4  #3E3859
+set $embark_spc_5  #585273
+
+# Astral Colors
+set $embark_astral_1  #8A889D
+set $embark_astral_2  #CBE3E7
+
+# Nebula Colors
+set $embark_nebula_red             #F02E6E
+set $embark_nebula_red_bright      #F48FB1
+set $embark_nebula_green           #62D196
+set $embark_nebula_green_bright    #A1EFD3
+set $embark_nebula_brown           #F2B482
+set $embark_nebula_brown_bright    #FFE6B3
+set $embark_nebula_blue            #65B2FF
+set $embark_nebula_blue_bright     #91DDFF
+set $embark_nebula_purple          #A37ACC
+set $embark_nebula_purple_bright   #D4BFFF
+set $embark_nebula_cyan            #63F2F1
+set $embark_nebula_cyan_bright     #87DFEB
+
+
+# Decorations             Border                Background            Text               Indicator            Child Border
+client.focused            $embark_nebula_brown   $embark_nebula_brown   $embark_spc_1      $embark_nebula_brown  $embark_nebula_brown
+client.focused_inactive   $embark_spc_3         $embark_spc_3         $embark_astral_2   $embark_spc_3        $embark_spc_3
+client.unfocused          $embark_spc_1         $embark_spc_2         $embark_astral_2   $embark_spc_2        $embark_spc_1
+client.urgent             $embark_nebula_red    $embark_nebula_red    $embark_astral_2   $embark_nebula_red   $embark_nebula_red
+
+
+# Panel
+set $panel_foreground  $embark_astral_2
+set $panel_background  $embark_spc_1
+
+# Workspaces       Outline               Bg                    Text
+set $ws_focused    $embark_nebula_brown   $embark_nebula_brown   $embark_spc_1
+set $ws_active     $embark_nebula_brown   $embark_nebula_brown   $embark_spc_1
+set $ws_inactive   $embark_spc_1         $embark_spc_1         $embark_astral_2
+set $ws_urgent     $embark_nebula_red    $embark_nebula_red    $embark_spc_1
+
+
+# Wob
+# - absolutely requires colours to be #RRGGBBAA, and doesn't just assume
+#   the alpha channel to be FF if ommited, instead refusing to even start
+set $wob_opacity FF
+set $wob_border      $embark_nebula_brown$wob_opacity
+set $wob_bar         $embark_nebula_brown$wob_opacity
+set $wob_background  $embark_spc_1$wob_opacity
+
+
+# Mako
+set $mako_background  $embark_nebula_brown
+set $mako_text        $embark_spc_1
+set $mako_border      $embark_nebula_brown
+
+
+# bemenu
+set $bemenu_title_background         $embark_nebula_brown
+set $bemenu_title_foreground         $embark_spc_1
+set $bemenu_filter_background        $embark_spc_1
+set $bemenu_filter_foreground        $embark_astral_2
+set $bemenu_normal_background        $embark_spc_1
+set $bemenu_normal_foreground        $embark_astral_2
+set $bemenu_highlighted_background   $embark_nebula_brown
+set $bemenu_highlighted_foreground   $embark_spc_1
+set $bemenu_alternating_background   $embark_spc_1
+set $bemenu_alternating_foreground   $embark_nebula_brown
+
