@@ -23,7 +23,12 @@
     floating_modifier $mod normal
 
     # Reload the configuration file
-    bindsym $mod+Shift+c reload
+    bindsym $mod+Shift+c exec \
+        swaymsg reload & \
+        ~/.config/mako/update-theme.sh & \
+        ~/.config/wob/update-theme.sh & \
+        pywalfox update & \
+        notify-send --expire-time=5000 "Config Reloaded"
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning \

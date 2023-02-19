@@ -38,18 +38,18 @@ bindsym $mod+XF86RFKill exec nmcli radio wifi off && pkill -SIGRTMIN+14 i3blocks
 
 
 # Window Transparency
-bindsym $mod+o opacity minus .05
-bindsym $mod+p opacity plus  .05
+bindsym $mod+i opacity minus .05
+bindsym $mod+o opacity plus  .05
 
 
 # Stick/Pin windows to all workspaces
-bindsym ctrl+$mod+p sticky toggle
+bindsym $mod+p sticky toggle
 
 
 # screenshot - Shift to crop, $MOD to save to clipboard
-bindsym Print            exec GRIM_DEFAULT_DIR=~/Pictures/screenshots grim && notify-send "Screenshot saved in ~/Pictures/screenshots"
-bindsym Shift+Print      exec GRIM_DEFAULT_DIR=~/Pictures/screenshots grim -g "$(slurp)" && notify-send "Screenshot saved in ~/Pictures/screenshots"
-bindsym $mod+Print       exec grim -               | wl-copy && notify-send "Screenshot copied to clipboard"
-bindsym $mod+Shift+Print exec grim -g "$(slurp)" - | wl-copy && notify-send "Screenshot copied to clipboard"
+bindsym Print            exec GRIM_DEFAULT_DIR=~/Pictures/screenshots grim && notify-send --expire-time=5000 "Screenshot saved in ~/Pictures/screenshots"
+bindsym Shift+Print      exec GRIM_DEFAULT_DIR=~/Pictures/screenshots grim -g "$(slurp)" && notify-send --expire-time=5000 "Screenshot saved in ~/Pictures/screenshots"
+bindsym $mod+Print       exec grim -               | wl-copy && notify-send --expire-time=5000 "Screenshot copied to clipboard"
+bindsym $mod+Shift+Print exec grim -g "$(slurp)" - | wl-copy && notify-send --expire-time=5000 "Screenshot copied to clipboard"
 
 

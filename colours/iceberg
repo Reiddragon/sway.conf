@@ -65,8 +65,8 @@ set $bemenu_normal_background        $palette_background
 set $bemenu_normal_foreground        $palette_foreground
 set $bemenu_highlighted_background   $palette_blue
 set $bemenu_highlighted_foreground   $palette_background
-set $bemenu_selecred_background      $palette_background
-set $bemenu_selecred_foreground      $palette_blue
+set $bemenu_selected_background      $palette_background
+set $bemenu_selected_foreground      $palette_blue
 set $bemenu_alternating_background   $palette_background
 set $bemenu_alternating_foreground   $palette_blue
 

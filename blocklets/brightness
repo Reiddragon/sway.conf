@@ -1,19 +1,11 @@
 #!/bin/env python3
-
 from subprocess import check_output
 
 
 def main():
     light = int(str(check_output('light')).split('.', maxsplit=1)[0].lstrip('b\''))
-    if light <= 33:
-        print(f' {light}')
-        quit(0)
-    elif 33 < light <= 66:
-        print(f' {light}')
-        quit(0)
-    elif light > 66:
-        print(f' {light}')
-        quit(0)
+
+    print(f"{['', '', ''][light // 34]} {light}")
 
 
 if __name__ == '__main__':

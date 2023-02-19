@@ -3,48 +3,44 @@
 # lockscreen
 set $kb_backlight     sysfs/leds/platform::kbd_backlight
 set $screen_backlight sysfs/leds/platform::kbd_backlight
-set $light_dim        light -O -s $kb_backlight && light -S 0 kb_backlight; light -O -s $screen_backlight && light
+set $light_dim        light -O -s $kb_backlight && light -S 0 $kb_backlight; light -O -s $screen_backlight && light
 
 
 exec swayidle -w \
     timeout 150 ' \
-        light -s $kb_backlight -O; \
-        light -s $kb_backlight -S 0; \
-        light -s $screen_backlight -O; \
-        light -s $screen_backlight -T .5; \
+        light -s $kb_backlight -O && \
+        light -s $kb_backlight -S 0 & \
+        light -s $screen_backlight -O && \
+        light -s $screen_backlight -T .5 \
     ' resume ' \
-        light -s $kb_backlight -I; \
-        light -s $screen_backlight -I; \
+        light -s $kb_backlight -I & \
+        light -s $screen_backlight -I \
     ' \
     timeout 300 ' \
-        $lockscreen --grace=5; \
+        $lockscreen --grace=10 \
     ' \
     timeout 600 ' \
-        swaymsg "output * dpms off"; \
+        swaymsg "output * dpms off" \
     ' resume ' \
-        swaymsg "output * dpms on"; \
+        swaymsg "output * dpms on" \
     ' \
     timeout 900 ' \
-        systemctl suspend; \
+        systemctl suspend \
     ' \
     before-sleep ' \
-        $lockscreen; \
-        playerctl pause; \
+        $lockscreen & \
+        playerctl pause \
     '
 
 
 # create wob socket
 set $WOBSOCK /run/user/1000/wob.sock
 # clean up any existing socket
-exec mkfifo $WOBSOCK && exec tail -f $WOBSOCK | \
-   wob --border=2 --border-color=$wob_border \
-       --padding=0 --margin=0 --offset=0 \
-       --bar-color=$wob_bar --background-color=$wob_background \
-       --anchor=bottom -H 44
+exec 'mkfifo $WOBSOCK && tail -f $WOBSOCK | wob'
 
 
 # notification server
-exec mako \
+exec mako #\
     --font=$font \
     --background-color=$mako_background \
     --text-color=$mako_text \
@@ -66,7 +62,7 @@ exec plasma-browser-integration-host
 exec kdeconnect-indicator
 exec gammastep
 exec /home/reid/.bin/mpd-mpris
-
+exec playerctld
 
 
 

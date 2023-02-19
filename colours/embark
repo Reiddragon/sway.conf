@@ -27,47 +27,50 @@ set $embark_nebula_cyan_bright     #87DFEB
 
 
 # Decorations             Border                Background            Text               Indicator            Child Border
-client.focused            $embark_nebula_brown   $embark_nebula_brown   $embark_spc_1      $embark_nebula_brown  $embark_nebula_brown
+client.focused            $embark_nebula_blue   $embark_nebula_blue   $embark_spc_1      $embark_nebula_blue  $embark_nebula_blue
 client.focused_inactive   $embark_spc_3         $embark_spc_3         $embark_astral_2   $embark_spc_3        $embark_spc_3
 client.unfocused          $embark_spc_1         $embark_spc_2         $embark_astral_2   $embark_spc_2        $embark_spc_1
 client.urgent             $embark_nebula_red    $embark_nebula_red    $embark_astral_2   $embark_nebula_red   $embark_nebula_red
 
 
 # Panel
+set $panel_transparency   cc
 set $panel_foreground  $embark_astral_2
-set $panel_background  $embark_spc_1
+set $panel_background  $embark_spc_1$panel_transparency
 
-# Workspaces       Outline               Bg                    Text
-set $ws_focused    $embark_nebula_brown   $embark_nebula_brown   $embark_spc_1
-set $ws_active     $embark_nebula_brown   $embark_nebula_brown   $embark_spc_1
-set $ws_inactive   $embark_spc_1         $embark_spc_1         $embark_astral_2
-set $ws_urgent     $embark_nebula_red    $embark_nebula_red    $embark_spc_1
+# Workspaces       Outline                            Bg                                 Text
+set $ws_focused    $embark_nebula_blue               $embark_nebula_blue               $embark_spc_1
+set $ws_active     $embark_nebula_blue               $embark_nebula_blue               $embark_spc_1
+set $ws_inactive   $embark_spc_1$panel_transparency   $embark_spc_1$panel_transparency   $embark_astral_2
+set $ws_urgent     $embark_nebula_red                 $embark_nebula_red                 $embark_spc_1
 
 
 # Wob
 # - absolutely requires colours to be #RRGGBBAA, and doesn't just assume
 #   the alpha channel to be FF if ommited, instead refusing to even start
 set $wob_opacity FF
-set $wob_border      $embark_nebula_brown$wob_opacity
-set $wob_bar         $embark_nebula_brown$wob_opacity
+set $wob_border      $embark_nebula_blue$wob_opacity
+set $wob_bar         $embark_nebula_blue$wob_opacity
 set $wob_background  $embark_spc_1$wob_opacity
 
 
 # Mako
-set $mako_background  $embark_nebula_brown
+set $mako_background  $embark_nebula_blue
 set $mako_text        $embark_spc_1
-set $mako_border      $embark_nebula_brown
+set $mako_border      $embark_nebula_blue
 
 
 # bemenu
-set $bemenu_title_background         $embark_nebula_brown
+set $bemenu_title_background         $embark_nebula_blue
 set $bemenu_title_foreground         $embark_spc_1
 set $bemenu_filter_background        $embark_spc_1
 set $bemenu_filter_foreground        $embark_astral_2
 set $bemenu_normal_background        $embark_spc_1
 set $bemenu_normal_foreground        $embark_astral_2
-set $bemenu_highlighted_background   $embark_nebula_brown
+set $bemenu_highlighted_background   $embark_nebula_blue
 set $bemenu_highlighted_foreground   $embark_spc_1
+set $bemenu_selected_background   $embark_spc_1
+set $bemenu_selected_foreground   $embark_nebula_blue
 set $bemenu_alternating_background   $embark_spc_1
-set $bemenu_alternating_foreground   $embark_nebula_brown
+set $bemenu_alternating_foreground   $embark_nebula_blue
 

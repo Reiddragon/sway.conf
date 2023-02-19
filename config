@@ -2,46 +2,51 @@
 set $mod Mod4
 
 # Home row direction keys, like vim
-set $left h
-set $down j
-set $up k
-set $right l
+set {
+    $left h
+    $down j
+    $up k
+    $right l
+}
 
 # Your preferred terminal emulator
 set $term kitty
 
 # theme stuff
-set $font "Hack Nerd Font 10"
+set $font "Hack Nerd Font Mono 10"
+#set $font "GohuFont Nerd Font Mono 12"
 
 seat seat0 xcursor_theme Breeze_Snow 24
 
-include colours/summerfruit_dark
+include {
+    "$HOME/.cache/wal/colors-sway"
+    colours/wal
+}
 
 # backgrounds - lockscreen needs quotes if the path has spaces, desktop works fine both with and without them tho :P
-set $desktop_bg "/home/reid/Pictures/Just Another Library Cityscapes/Sci-Fi 107.jpg"
-set $lockscreen swaylock -f \
-        --screenshots \
-        --clock \
-        --indicator \
-        --effect-scale .7 \
-        --effect-blur 10x10 \
-        --fade-in 0.2
+set $desktop_bg "$wallpaper"
+set $lockscreen swaylock -f --image $desktop_bg
 
 
 font $font
-gaps inner 6
-gaps outer 3
+gaps {
+    inner 6
+    outer 3
+}
 smart_gaps on
 smart_borders on
 title_align center
 default_border pixel 2
 
-include services
-include hardware
-include panel
-include keyboard
-include keyboard_extra
-include launcher
+include {
+    services
+    hardware
+    panel
+    keyboard
+    keyboard_extra
+    gestures
+    launcher
+}
 
 ### Output configuration
 # You can get the names of your inputs by running: swaymsg -t get_inputs

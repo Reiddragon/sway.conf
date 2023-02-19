@@ -1,0 +1,59 @@
+# vim: ft=swayconfig
+
+# for use with PyWal
+
+set $theme_foreground       $foreground
+set $theme_background       $background
+set $theme_background_alt   $color1
+set $theme_accent           $color5
+set $theme_urgent           $color3
+
+
+# Decorations             Border                  Background              Text                Indicator               Child Border
+client.focused            $theme_accent           $theme_accent           $theme_background   $theme_accent           $theme_accent
+client.focused_inactive   $theme_background_alt   $theme_background_alt   $theme_foreground   $theme_background_alt   $theme_background_alt
+client.unfocused          $theme_background       $theme_background       $theme_foreground   $theme_background       $theme_background
+client.urgent             $theme_urgent           $theme_urgent           $theme_foreground   $theme_urgent           $theme_urgent
+
+
+# Panel
+set $panel_transparency   cc
+set $panel_foreground     $theme_foreground
+set $panel_background     $theme_background$panel_transparency
+
+# Workspaces       Outline                                Bg                                       Text
+set $ws_focused    $theme_accent                          $theme_accent                          $theme_background
+set $ws_active     $theme_accent                          $theme_accent                          $theme_background
+set $ws_inactive   $theme_background$panel_transparency   $theme_background$panel_transparency   $theme_foreground
+set $ws_urgent     $theme_urgent                          $theme_urgent                          $theme_background
+
+
+# Wob
+# - absolutely requires colours to be #RRGGBBAA, and doesn't just assume
+#   the alpha channel to be FF if ommited, instead refusing to even start
+set $wob_opacity FF
+set $wob_border      $theme_accent$wob_opacity
+set $wob_bar         $theme_accent$wob_opacity
+set $wob_background  $theme_background$wob_opacity
+
+
+# Mako
+set $mako_background  $theme_accent
+set $mako_text        $theme_background
+set $mako_border      $theme_accent
+
+
+# bemenu
+set $bemenu_title_background         $theme_accent
+set $bemenu_title_foreground         $theme_background
+set $bemenu_filter_background        $theme_background
+set $bemenu_filter_foreground        $theme_foreground
+set $bemenu_normal_background        $theme_background
+set $bemenu_normal_foreground        $theme_foreground
+set $bemenu_highlighted_background   $theme_accent
+set $bemenu_highlighted_foreground   $theme_background
+set $bemenu_selected_background      $theme_background
+set $bemenu_selected_foreground      $theme_accent
+set $bemenu_alternating_background   $theme_background
+set $bemenu_alternating_foreground   $theme_accent
+
