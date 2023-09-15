@@ -8,14 +8,12 @@
 (display
   (string-append
     (if (eqv? devices #!eof)
-        (case (string->symbol
-                (list-ref (string-split
-                            (capture
-                              ("bluetoothctl show | grep Powered")))
-                          1))
-          ((yes) "󰂯 Disconnected")
-          ((no) "󰂲 Off")
-          (else "sumthang's wrong"))
+        (if (list-ref (string-split
+                        (capture
+                          ("bluetoothctl show | grep 'Powered: yes'")))
+                      1)
+            "󰂯 Disconnected"
+            "󰂲 Off")
         (string-append "󰂱 Connected to "
                        (string-intersperse
                          (map
