@@ -8,10 +8,7 @@
 (display
   (string-append
     (if (eqv? devices #!eof)
-        (if (list-ref (string-split
-                        (capture
-                          ("bluetoothctl show | grep 'Powered: yes'")))
-                      1)
+        (if (= 0 (run* ("bluetoothctl show | grep 'Powered: yes'")))
             "󰂯 Disconnected"
             "󰂲 Off")
         (string-append "󰂱 Connected to "
